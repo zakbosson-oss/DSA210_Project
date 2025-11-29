@@ -23,3 +23,10 @@
 **Hypothesis'**
 
    Due to the nature of the problem, a single hypothesis and test will not be sufficient to fuully understand how the performance of a video is affected by certaim parameters. Thus, I have formulated a series of tests which I will conduct with the data I obtained from other channels in the niche. 
+
+
+
+   | Column 1 |
+|----------|
+| Value A  |
+| Value D  |
