@@ -11,22 +11,11 @@
 
 
 **Data Processing** 
-
-
-
-
-
-
+   Data will ve processed using python and libraries.
 
 
 
 **Hypothesis'**
 
-   Due to the nature of the problem, a single hypothesis and test will not be sufficient to fuully understand how the performance of a video is affected by certaim parameters. Thus, I have formulated a series of tests which I will conduct with the data I obtained from other channels in the niche. 
+   Due to the complexity of the problem that is trying to be solved, it is not sufficient to analyze the correlatiomn between one or even a few parameters. Instead studies with regard to multiple research questions must be carried out in order to formulate a model that can be implemented to the pipeline.
 
-
-
-   | Column 1 |
-|----------|
-| Value A  |
-| Value D  |
