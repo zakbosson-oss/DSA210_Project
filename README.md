@@ -16,7 +16,85 @@
 
 
 
-**Hypothesis'**
+**Research Questions'**
 
-   Due to the complexity of the problem that is trying to be solved, it is not sufficient to analyze the correlatiomn between one or even a few parameters. Instead studies with regard to multiple research questions must be carried out in order to formulate a model that can be implemented to the pipeline.
+   Due to the complexity of the problem that is trying to be solved, it is not sufficient to analyze the correlatiomn between one or even a few parameters. Instead studies with regard to multiple research questions must be carried out in order to formulate a model that can be implemented to the pipeline. I have formulated a set of research questions that I plan on researching. These research questions are subject to chnage at this point of the research (1/12/2025). 
+
+**Hypothesis Set A — Thumbnail & Title Effects**
+H1 — Videos with human faces in the thumbnail get more views.
+
+H₀: Videos with faces have the same average views as videos without faces.
+
+Test: Two-sample t-test or Mann–Whitney U test.
+
+H2 — Thumbnail brightness is positively correlated with views.
+
+H₀: Thumbnail brightness has no linear correlation with views.
+
+Test: Pearson correlation (linear), Spearman (non-linear).
+
+H3 — Videos with emotionally strong titles (“Hitler,” “D-Day,” “Nazi”) get more views.
+
+H₀: No difference in views based on emotional/charged keywords.
+
+Test: ANOVA (multi-group) or Chi-square for proportions.
+
+**Hypothesis Set B — Topic & Content Structure**
+H4 — Videos about major battles get significantly more views than other topics.
+
+Topics:
+
+battles
+
+biographies
+
+weapons
+
+political history
+
+maps/strategy
+
+documentaries
+
+H₀: Mean views are equal across all topic categories.
+
+Test: ANOVA or Kruskal–Wallis.
+
+H5 — Videos with higher sentiment variability (emotional arc) perform better.
+
+H₀: Sentiment arc does not influence views.
+
+Test: Correlation + regression.
+
+**Hypothesis Set C — Length, Upload Time & Channel Size**
+H6 — Longer videos (20–40 mins) receive more total views.
+
+H₀: Video length is not associated with views.
+
+Test: Regression; also ANOVA (short/medium/long).
+
+H7 — Upload time-of-day affects initial 7-day view growth.
+
+H₀: View growth does not differ by upload hour.
+
+Test: Kruskal–Wallis; time-series decomposition.
+
+H8 — When controlling for channel size, thumbnail & title features explain most virality.
+
+H₀: Channel size is the main predictor.
+
+Test: Multiple linear regression or random forest feature importance.
+
+**Hypothesis Set D — Engagement Ratios**
+H9 — Videos with higher like-to-view ratio end up with higher long-term views.
+
+H₀: Like-to-view ratio does not predict virality.
+
+Test: Correlation + regression.
+
+H10 — Comment density correlates with recommendation ranking.
+
+H₀: Comments do not influence how often the video appears in recommendations.
+
+Test: Spearman correlation.
 
