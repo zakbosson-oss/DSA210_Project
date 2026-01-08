@@ -1,155 +1,122 @@
 # DSA 210 Project  
 ## Competition & Niche Analysis for a YouTube Channel
 
----
-
-## Background and Motivation
-
-Industrial Engineering focuses on analyzing, improving, and optimizing systems. While these
-methods are often associated with large-scale corporate or industrial environments, the same
-principles can also be applied to smaller, digital systems.
-
-In this project, YouTube content creation is treated as an operational pipeline. The specific
-context is a YouTube channel operating in the *Short Documentary* niche, with a focus on
-*World War II* content. A significant portion of the production process—such as script writing,
-title generation, descriptions, tags, and voiceovers—is automated using AI-based tools. The
-remaining steps, including visual assembly and publishing, form a repeatable workflow analogous
-to a production line.
-
-From an operational perspective, the objective of this system is to maximize revenue, which is
-primarily driven by video views and audience engagement. However, optimizing such a system
-without understanding the factors that influence video performance is inherently difficult.
-This project aims to reduce this uncertainty by analyzing competing channels within the same
-niche and identifying video-level characteristics associated with both high and low performance.
+### Author
+Erim  
+Senior Industrial Engineering Student
 
 ---
 
-## Project Objective
+## Project Overview
 
-The primary objective of this project is to analyze video-level metadata from YouTube channels
-within the same niche in order to understand:
+This project applies data analytics, statistical hypothesis testing, and machine learning
+techniques to analyze video performance dynamics within the *WW2 short documentary* niche on
+YouTube. The motivation of the study is to demonstrate that Industrial Engineering concepts
+and data-driven methods can be effectively applied beyond traditional corporate systems,
+including creative digital content pipelines.
 
-- Which video characteristics are associated with higher performance
-- Whether low-performing videos are random outcomes or exhibit systematic patterns
-- How content and timing decisions can be informed by data-driven insights
+By treating YouTube content production as a system influenced by multiple interacting
+variables, the project aims to identify which factors systematically contribute to video
+underperformance and which commonly assumed strategies (such as upload timing) have limited
+impact once channel size and baseline behavior are accounted for.
 
 ---
 
 ## Data Sources
 
-The primary data source for this project is the YouTube Data API v3. A predefined list of
-YouTube channels operating within the same content niche was used as the basis for data
-collection.
+The dataset was constructed using publicly available information obtained through:
 
-For each channel, all publicly available uploaded videos were retrieved. The following
-metadata was collected for each video:
+- **YouTube Data API v3**  
+  - Video metadata (title, description, duration)
+  - Engagement metrics (views, likes, comments)
+  - Upload timestamps
+- Channel-level aggregation for normalization purposes
 
-- Video identifier and channel identifier
-- Upload timestamp
-- Video duration
-- View count
-- Like count
-- Comment count
-- Video title and description
-
-The final dataset contains one observation per video and forms the basis for all subsequent
-analysis.
-
----
-
-## Data Processing
-
-Data processing and analysis were conducted using Python. Raw video metadata was cleaned
-and transformed to ensure consistency and analytical usability.
-
-Key preprocessing steps include:
-- Standardizing timestamp formats and resolving timezone inconsistencies
-- Converting numeric fields (views, likes, comments) to appropriate data types
-- Removing invalid observations
-- Engineering derived features relevant to analysis
-
-The following features were engineered:
-- Video duration (minutes)
-- Engagement rate (likes + comments divided by views)
-- Video age (days since upload)
-- Upload hour
-- Upload day of week
-
-All preprocessing steps are fully reproducible and documented in the accompanying Jupyter
-notebook.
-
----
-
-## Research Questions
-
-Rather than focusing on a single factor, this project investigates multiple dimensions of video
-performance to better understand why some videos succeed while others underperform.
-
-The analysis is guided by the following research questions:
-
-1. How does video duration relate to total views and engagement rates?
-2. Does upload timing (hour of day) influence average video performance?
-3. Are there systematic performance differences across channels within the same niche?
-4. Are low-performing videos random outcomes, or do they share common structural characteristics?
-5. How do engagement metrics differ between low-performing and typical-performing videos?
-
-These questions are explored through exploratory data analysis and simple quantitative methods,
-with the goal of identifying actionable insights that can inform content strategy within a
-structured production pipeline.
+The final dataset contains **6,484 videos** across multiple channels in the same content
+niche.
 
 ---
 
 ## Methodology
 
-The analysis follows a structured workflow:
+The analysis follows a structured, multi-stage approach:
 
-1. Data collection  
-   Video metadata was collected programmatically using the YouTube Data API.
+### 1. Exploratory Data Analysis (EDA)
+- Distributional analysis of views and engagement
+- Investigation of upload timing, duration, and metadata length
+- Channel-normalized performance measures
 
-2. Data cleaning and feature engineering  
-   Raw data was cleaned and transformed to derive meaningful analytical variables.
+### 2. Hypothesis Testing
+Non-parametric statistical tests were used to evaluate relationships between:
+- Video duration and engagement
+- Upload hour/day and performance
+- Metadata length and views
+- Engagement differences between low-performing and typical videos
 
-3. Exploratory data analysis  
-   Visualizations were used to examine distributions, relationships, and variability across
-   videos and channels.
+Tests included Spearman correlation, Kruskal–Wallis, and Mann–Whitney U tests.
 
-4. Quantitative analysis  
-   Correlation analysis was used to support patterns observed during exploratory analysis.
+### 3. Machine Learning
+Machine learning methods were applied to explore latent structure and predictive patterns:
+- **Principal Component Analysis (PCA)** for dimensionality reduction
+- **K-Means clustering** for unsupervised grouping of videos
+- **Logistic regression** for supervised classification of low-performing videos
 
-5. Focused sub-analysis  
-   Low-performing videos were analyzed as a distinct subgroup to determine whether poor
-   performance is associated with identifiable characteristics rather than random variation.
+Feature importance analysis was used to interpret model behavior.
 
 ---
 
 ## Key Findings
 
-- View counts are highly skewed, with a small number of videos accounting for a large share of
-  total views.
-- Video duration exhibits a weak relationship with total views, while very long videos tend
-  to show lower engagement rates.
-- Upload timing is associated with differences in average views, suggesting temporal effects
-  in audience behavior.
-- Performance differs substantially across channels, indicating strong channel-level effects.
-- Low-performing videos are not purely random; they often differ systematically in engagement,
-  timing, or channel context.
+- Video performance is **multifactorial** and cannot be explained by a single dominant
+  variable.
+- Apparent effects of upload timing and duration largely diminish once channel baseline
+  performance is controlled for.
+- Engagement rate and channel-relative performance are the most informative predictors of
+  underperformance.
+- Low-performing and typical videos do not form clearly separable clusters, indicating that
+  performance exists along a continuum rather than in distinct categories.
 
 ---
 
-## Scope and Limitations
+## Practical Implications
 
-This study relies exclusively on publicly available YouTube metadata. Internal platform metrics
-such as watch time, click-through rate, recommendation impressions, and audience demographics
-are not accessible and therefore not included.
+The results suggest that creators should prioritize:
+- Improving early engagement signals
+- Maintaining consistency with channel-level audience expectations
+- Evaluating performance relative to their own historical baseline rather than global
+  benchmarks
 
-View counts are cumulative and naturally increase over time, which limits causal interpretation.
-The analysis identifies associations rather than causal relationships.
-
-While additional features such as thumbnail content, transcript sentiment, or time-series view
-trajectories could provide deeper insight, the current scope prioritizes robust and reproducible
-metadata that can be collected consistently across channels.
+Optimization of upload schedules or metadata length alone is unlikely to compensate for weak
+audience response.
 
 ---
 
-## Repository Structure
+## Limitations and Future Work
 
+- Thumbnail design, visual quality, and narrative structure were not directly analyzed.
+- Performance was measured using static snapshots rather than full time-series growth.
+- Binary classification of underperformance simplifies a continuous outcome.
+
+Future work may incorporate computer vision, natural language processing of transcripts,
+time-series modeling, and cross-niche comparisons.
+
+---
+
+## AI Usage Disclosure
+
+This project was developed with the assistance of AI-based tools. Large language models were
+used to support:
+- Code structuring and debugging
+- Drafting and refining explanatory text
+- Improving clarity and organization of analysis sections
+
+All analytical decisions, interpretations, and conclusions were reviewed, validated, and
+curated by the author. AI tools were used as a productivity aid and not as a substitute for
+conceptual understanding or independent reasoning.
+
+---
+
+## Course Information
+
+This project was completed as part of **DSA 210** and adheres to the course guidelines on data
+analysis, hypothesis testing, and machine learning applications.
