@@ -1,10 +1,6 @@
 # DSA 210 Project  
 ## Competition & Niche Analysis for a YouTube Channel
 
-### Author
-Erim  
-Senior Industrial Engineering Student
-
 ---
 
 ## Project Overview
